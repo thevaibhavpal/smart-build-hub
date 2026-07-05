@@ -845,7 +845,7 @@
         "kind": 5,
         "importPath": "firstproject.settings",
         "description": "firstproject.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# SECURITY WARNING: keep the secret key used in production secret!\n# लोकल डेवलपमेंट के लिए फॉलबैक की (Fallback Key) है, प्रोडक्शन की (Production Key) हम Vercel में डालेंगे।\nSECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-$yn(22k-p-ogt@pispy0-8y%dsghh3t*1o+l&h%%u0(us9)@(l')\n# Production में एरर छिपाने के लिए यह अपने आप False हो जाएगा\nDEBUG = os.environ.get('DEBUG', 'True') == 'True'\n# Vercel के डोमेन को अनुमति देना\nALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# SECURITY WARNING: keep the secret key used in production secret!\n# लोकल डेवलपमेंट के लिए फॉलबैक की (Fallback Key) है, प्रोडक्शन की (Production Key) हम Vercel में डालेंगे।\nSECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-$yn(22k-p-ogt@pispy0-8y%dsghh3t*1o+l&h%%u0(us9)@(l')\n# Production में एरर छिपाने के लिए यह अपने आप False हो जाएगा\nDEBUG = os.environ.get('DEBUG', 'True') == 'True'\n# Vercel के डोमेन को अनुमति देना\nALLOWED_HOSTS = ['*', '.vercel.app', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "firstproject.settings",
         "documentation": {}
     },
@@ -854,7 +854,7 @@
         "kind": 5,
         "importPath": "firstproject.settings",
         "description": "firstproject.settings",
-        "peekOfCode": "SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-$yn(22k-p-ogt@pispy0-8y%dsghh3t*1o+l&h%%u0(us9)@(l')\n# Production में एरर छिपाने के लिए यह अपने आप False हो जाएगा\nDEBUG = os.environ.get('DEBUG', 'True') == 'True'\n# Vercel के डोमेन को अनुमति देना\nALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',",
+        "peekOfCode": "SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-$yn(22k-p-ogt@pispy0-8y%dsghh3t*1o+l&h%%u0(us9)@(l')\n# Production में एरर छिपाने के लिए यह अपने आप False हो जाएगा\nDEBUG = os.environ.get('DEBUG', 'True') == 'True'\n# Vercel के डोमेन को अनुमति देना\nALLOWED_HOSTS = ['*', '.vercel.app', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',",
         "detail": "firstproject.settings",
         "documentation": {}
     },
@@ -863,7 +863,7 @@
         "kind": 5,
         "importPath": "firstproject.settings",
         "description": "firstproject.settings",
-        "peekOfCode": "DEBUG = os.environ.get('DEBUG', 'True') == 'True'\n# Vercel के डोमेन को अनुमति देना\nALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
+        "peekOfCode": "DEBUG = os.environ.get('DEBUG', 'True') == 'True'\n# Vercel के डोमेन को अनुमति देना\nALLOWED_HOSTS = ['*', '.vercel.app', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
         "detail": "firstproject.settings",
         "documentation": {}
     },
@@ -872,7 +872,7 @@
         "kind": 5,
         "importPath": "firstproject.settings",
         "description": "firstproject.settings",
-        "peekOfCode": "ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'mainapp',",
+        "peekOfCode": "ALLOWED_HOSTS = ['*', '.vercel.app', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'mainapp',",
         "detail": "firstproject.settings",
         "documentation": {}
     },

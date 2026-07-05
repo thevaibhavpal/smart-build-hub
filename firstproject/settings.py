@@ -18,7 +18,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-$yn(22k-p-ogt@
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Vercel के डोमेन को अनुमति देना
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['*', '.vercel.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
