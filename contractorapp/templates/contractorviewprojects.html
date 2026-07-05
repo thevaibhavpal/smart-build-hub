@@ -1,0 +1,85 @@
+{% extends 'contractorbase.html' %}
+{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>contractor view</h3>
+
+    {% if messages %}
+    {% for m in messages %}
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        {{ m }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>S. No</th>
+                <th>Project Name</th>
+                <th>Duration ( in days)</th>
+                <th>Budget</th>
+                <th>Location</th>
+                <th>Homeowner</th>
+                <th>Status</th>
+                <th>Plot Size</th>
+                <th>House Type</th>
+                <th>No. of Floors</th>
+                <th>Basements</th>
+                <th>Parking</th>
+                <th>Bedrooms</th>
+                <th>Bathrooms</th>
+                <th>Kitchen on Each Floor</th>
+                <th>Additional Rooms</th>
+                <th>Outdoor Areas</th>
+                <th>Action</th>
+
+            </tr>
+
+            {% for p in projects %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{p.projectname}}</td>
+                <td>{{p.Duration}} days</td>
+                <td>{{p.budget}}</td>
+                <td>{{p.location}}</td>
+                <td>
+                    {% if p.homeowner.picture %}
+                    <img src="{{p.homeowner.picture.url}}" alt="" width="50" height="50">
+                    {% endif %}
+                    {{p.homeowner.name}}
+                    {{p.homeowner.contactno}}
+                </td>
+                <td>{{p.status}}</td>
+                <td>{{p.plot_size}}</td>
+                <td>{{p.house_type}}</td>
+                <td>{{p.num_floors}}</td>
+                <td>{{p.basement}}</td>
+                <td>{{p.parking_required}}</td>
+                <td>{{p.Bedrooms}}</td>
+                <td>{{p.bathrooms}}</td>
+                <td>{{p.Kitchen_each_floor}}</td>
+                <td>{{p.additional_rooms}}</td>
+                <td>{{p.outdoor_areas}}</td>
+                <td>
+                    <a href="{% url 'applyproject' id=p.id %}" class="btn btn-danger">Apply</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</body>
+
+</html>
+
+{% endblock%}

@@ -1,0 +1,779 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Smart Build Hub</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <style>
+        body,html{
+            overflow-x: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <!-- <div class="container-fluid px-5 d-none d-lg-block">
+        <div class="row gx-5">
+            <div class="col-lg-4 text-center py-3">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase fw-bold">Our Office</h6>
+                        <span>123 Street, New York, USA</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center border-start border-end py-3">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase fw-bold">Email Us</h6>
+                        <span>info@example.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center py-3">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase fw-bold">Call Us</h6>
+                        <span>+012 345 6789</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Topbar End -->
+
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top bg-dark bg-light shadow-sm px-5 pe-lg-0">
+        <nav class="navbar navbar-expand-lg bg-dark bg-light navbar-dark py-3 py-lg-0" style="height:70px;">
+            <a href="index.html" class="navbar-brand">
+                <h1 class="m-0 display-8 text-uppercase text-white"><img
+                        src="{% static 'img/smartbuild_logo_dark.png' %}" style="width: 100px; height:100px;"
+                        alt=""></i>Smart Build Hub</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                    <a href="{% url 'services' %}" class="nav-item nav-link">Service</a>
+                    <a href="{% url 'projects' %}" class="nav-item nav-link">Projects</a>
+
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+
+                    <a href="{% url 'login' %}">
+                </div>
+                <button class="btn btn-outline-warning me-3">LogIn</button>
+            </div></a>
+
+
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <i class="fa fa-home fa-4x text-primary mb-4 d-none d-sm-block"></i>
+                            <h1 class="display-2 text-uppercase text-white mb-md-4">Build Your Dream House With Us</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Get A Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="zoom-out" class="carousel-item">
+                    <img class="w-100" src="{% static 'img/carousel-3.jpg' %}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div data-aos="zoom-out" class="p-3" style="max-width: 900px;">
+                            <i class="fa fa-tools fa-4x text-primary mb-4 d-none d-sm-block"></i>
+                            <h1 class="display-2 text-uppercase text-white mb-md-4">We Are Trusted For Your Project</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- About Start -->
+    <div data-aos="fade-down-right" class="container-fluid py-6 px-5">
+        <div class="row g-5">
+            <div data-aos="fade-down-right" class="col-lg-7">
+                <h1 class="display-5 text-uppercase mb-4">We are <span class="text-primary">the Leader</span> in
+                    Construction Industry</h1>
+                <h4 class="text-uppercase mb-3 text-body">"It was a time of solitude and reflection, in stillness and
+                    silence. Pain met pain as moments passed, with effort, emotion, and sorrow intertwined."</h4>
+                <p>"Peacefully, he was silent and calm, yet burdened by pain and emotion. Time passed with sorrow and
+                    quiet suffering, while deep sadness and pain remained constant and just."</p>
+                <div class="row gx-5 py-2">
+                    <div class="col-sm-6 mb-2">
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Perfect Planning</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Professional Workers</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>First Working Process</p>
+                    </div>
+                    <div class="col-sm-6 mb-2">
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Perfect Planning</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Professional Workers</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>First Working Process</p>
+                    </div>
+                </div>
+                <p class="mb-4">"It was a time of solitude and reflection, in stillness and silence. Pain met pain as
+                    moments passed, with effort, emotion, and sorrow intertwined."</p>
+                <img src="img/signature.jpg" alt="">
+            </div>
+            <div class="col-lg-5 pb-5" data-aos="fade-down-right" style="min-height: 600px;">
+                <div class="position-relative bg-dark-radial h-100 ms-5">
+                    <img class="position-absolute w-100 h-100 mt-5 ms-n5 rounded-3 mt-0"
+                        src="{% static 'img/w2.jpeg' %}" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Feature Section -->
+    <section class="features-section">
+        <div data-aos="fade-down-right" class="container">
+            <div data-aos="fade-down-right" class="section-title">
+                <p><span>PLATFORM FEATURES</span></p>
+                <h2>Powerful Tools for Modern Construction</h2>
+                <p class="text-light">Our comprehensive suite of features empowers every stakeholder in the construction
+                    process with the tools they need to succeed.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div data-aos="flip-left" class="col-md-4">
+                    <div class="card p-4 h-100">
+                        <div class="icon text-center">
+                            &#x2630; <!-- Menu icon as placeholder -->
+                        </div>
+                        <h5 class="text-center">Project Dashboard</h5>
+                        <p>Centralized hub for tracking progress, milestones, and resource allocation with intuitive
+                            visualizations.</p>
+                        <ul>
+                            <li>Real-time status tracking</li>
+                            <li>Task management system</li>
+                            <li>Budget monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div data-aos="flip-left" class="col-md-4">
+                    <div class="card p-4 h-100">
+                        <div class="icon text-center">
+                            &#128101; <!-- User group icon as placeholder -->
+                        </div>
+                        <h5 class="text-center">Team Collaboration</h5>
+                        <p>Connect all stakeholders in one platform with powerful communication and file-sharing
+                            capabilities.</p>
+                        <ul>
+                            <li>Unified messaging system</li>
+                            <li>Document sharing & approvals</li>
+                            <li>Role-based permissions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div data-aos="flip-left" class="col-md-4">
+                    <div class="card p-4 h-100">
+                        <div class="icon text-center">
+                            &#9881; <!-- Gear icon as placeholder -->
+                        </div>
+                        <h5 class="text-center">3D Visualization</h5>
+                        <p>Experience your construction project in three dimensions before breaking ground.</p>
+                        <ul>
+                            <li>Interactive models</li>
+                            <li>Virtual walkthroughs</li>
+                            <li>Design revisions in real-time</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- service sections start -->
+
+    <section class="services-section">
+        <div data-aos="fade-down-right" class="container">
+            <div data-aos="fade-down-right" class="section-title text-dark">
+                <p><span class="fw-bold fs-3">OUR SERVICES</span></p>
+                <h2>Comprehensive Construction Solutions</h2>
+                <p class="text">We offer a wide range of construction services tailored to meet the unique needs of each
+                    project, delivered with exceptional craftsmanship and attention to detail.</p>
+            </div>
+
+            <div class="row g-4">
+                <div data-aos="flip-up" class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <h5>Residential Construction</h5>
+                        <p>From custom homes to multi-family units, we build comfortable, energy-efficient residential
+                            spaces designed for modern living.</p>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div data-aos="fade-down-right" class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h5>Commercial Buildings</h5>
+                        <p>Office spaces, retail centers, and industrial facilities built to the highest standards of
+                            quality and functionality.</p>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div data-aos="fade-down-right" class="service-card">
+                        <div class="service-icon bg-warning">🎨</div>
+                        <h5>Interior Design</h5>
+                        <p>Transform your space with our expert interior design services, creating environments that
+                            inspire and delight.</p>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div data-aos="fade-down-right" class="service-card">
+                        <div class="service-icon">🛠️</div>
+                        <h5>Renovation & Remodeling</h5>
+                        <p>Breathe new life into existing structures with our comprehensive renovation and remodeling
+                            services.</p>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div data-aos="fade-down-right" class="service-card">
+                        <div class="service-icon">📐</div>
+                        <h5>Architectural Design</h5>
+                        <p>Innovative architectural solutions that balance aesthetics, functionality, and
+                            sustainability.</p>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div data-aos="fade-down-right" class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h5>Construction Management</h5>
+                        <p>Expert oversight of your project from concept to completion, ensuring efficiency and quality
+                            at every stage.</p>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- service sections end -->
+
+
+    <!-- 6 buildings start -->
+
+    <div class="container py-5">
+        <div data-aos="zoom-in-right" class="text-center mb-4">
+            <small class="text-warning fs-3 fw-bold">OUR PROJECTS</small>
+            <h2 class="section-title text-dark">Featured Construction Projects</h2>
+            <p class="section-subtitle">
+                Take a look at some of our most impressive projects, showcasing our commitment to quality, innovation,
+                and excellence in construction.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Project 1 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/1.jpg' %}" class="img-fluid" alt="Modern Office Complex">
+                    <div class="category">Commercial</div>
+                    <div class="title">Modern Office Complex</div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/2.jpg' %}" class="img-fluid" alt="Luxury Residential Tower"
+                        style="height:220px; width:500px;">
+                    <div class="category">Residential</div>
+                    <div class="title">Luxury Residential Tower</div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/3.jpg' %}" class="img-fluid" alt="Community Center">
+                    <div class="category">Public</div>
+                    <div class="title">Sustainable Community Center</div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/4.jpg' %}" class="img-fluid" alt="Manufacturing Hub"
+                        style="height:200px; width:500px;">
+                    <div class="category">Industrial</div>
+                    <div class="title">Industrial Manufacturing Hub</div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/5.jpg' %}" class="img-fluid" alt="Hotel & Spa">
+                    <div class="category">Hospitality</div>
+                    <div class="title">Waterfront Hotel & Spa</div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/6.jpg' %}" class="img-fluid" alt="Urban Development"
+                        style="height:200px; width:500px;">
+                    <div class="category">Mixed-use</div>
+                    <div class="title">Urban Mixed-Use Development</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6 buildings end -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid bg-light py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4">We Provide <span class="text-primary">The Best</span> Construction
+                Services</h1>
+        </div>
+        <div class="row g-5">
+            <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
+                class="col-lg-4 col-md-6">
+                <div class="service-item bg-white d-flex flex-column align-items-center text-center">
+                    <img class="img-fluid" src="{% static 'img/service-1.jpg' %}" alt="">
+                    <div class="service-icon bg-white">
+                        <i class="fa fa-3x fa-building text-primary"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h4 class="text-uppercase mb-3">Building Construction</h4>
+                        <p>"We deliver reliable and high-quality building construction services, from concept to completion."</p>
+                        <a class="btn text-primary" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
+                class="col-lg-4 col-md-6">
+                <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                    <img class="img-fluid" src="{% static 'img/service-2.jpg' %}" alt="">
+                    <div class="service-icon bg-white">
+                        <i class="fa fa-3x fa-home text-primary"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h4 class="text-uppercase mb-3">House Renovation</h4>
+                        <p>"Give your home a fresh new look with our expert renovation services designed to enhance comfort and value."</p>
+                        <a class="btn text-primary" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
+                class="col-lg-4 col-md-6">
+                <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                    <img class="img-fluid" src="{% static 'img/service-3.jpg' %}" alt="">
+                    <div class="service-icon bg-white">
+                        <i class="fa fa-3x fa-drafting-compass text-primary"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h4 class="text-uppercase mb-3">Architecture Design</h4>
+                       <p>"Our architectural designs fuse creativity with functionality, crafting spaces that inspire and endure."</p>
+                        <a class="btn text-primary" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
+                class="col-lg-4 col-md-6">
+                <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                    <img class="img-fluid" src="{% static 'img/service-4.jpg' %}" alt="">
+                    <div class="service-icon bg-white">
+                        <i class="fa fa-3x fa-palette text-primary"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h4 class="text-uppercase mb-3">Interior Design</h4>
+                        <p>"We offer personalized interior design solutions that blend functionality with timeless elegance."</p>
+                        <a class="btn text-primary" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
+                class="col-lg-4 col-md-6">
+                <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                    <img class="img-fluid" src="{% static 'img/service-5.jpg' %}" alt="">
+                    <div class="service-icon bg-white">
+                        <i class="fa fa-3x fa-tools text-primary"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h4 class="text-uppercase mb-3">Fixing & Support</h4>
+                        <p>"We provide reliable interior fixing and support services to ensure every element fits perfectly and functions flawlessly."</p>
+                        <a class="btn text-primary" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
+                class="col-lg-4 col-md-6">
+                <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                    <img class="img-fluid" src="{% static 'img/service-6.jpg' %}" alt="">
+                    <div class="service-icon bg-white">
+                        <i class="fa fa-3x fa-paint-brush text-primary"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h4 class="text-uppercase mb-3">Painting</h4>
+                        <p>"Add color to your space with our professional painting services that promise smooth finishes and lasting impressions."</p>
+                        <a class="btn text-primary" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+
+
+
+    <!-- Portfolio Start -->
+    <div data-aos="zoom-in-right" class="container-fluid bg-light py-6 px-5">
+        <div data-aos="zoom-in-right" class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4">Some Of Our <span class="text-primary">Popular</span> Dream
+                Projects</h1>
+        </div>
+        <div class="row gx-5">
+            <div data-aos="zoom-in-right" class="col-12 text-center">
+                <div class="d-inline-block bg-dark-radial text-center pt-4 px-5 mb-5">
+                    <ul class="list-inline mb-0" id="portfolio-flters">
+                        <li class="btn btn-outline-primary bg-white p-2 active mx-2 mb-4" data-filter="*">
+                            <img src="{% static 'img/portfolio-1.jpg' %}" style="width: 150px; height: 100px;">
+                            <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center"
+                                style="background: rgba(4, 15, 40, .3);">
+                                <h6 class="text-white text-uppercase m-0">All</h6>
+                            </div>
+                        </li>
+                        <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4" data-filter=".first">
+                            <img src="{% static 'img/portfolio-2.jpg' %}" style="width: 150px; height: 100px;">
+                            <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center"
+                                style="background: rgba(4, 15, 40, .3);">
+                                <h6 class="text-white text-uppercase m-0">Construction</h6>
+                            </div>
+                        </li>
+                        <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4" data-filter=".second">
+                            <img src="{% static 'img/portfolio-3.jpg' %}" style="width: 150px; height: 100px;">
+                            <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center"
+                                style="background: rgba(4, 15, 40, .3);">
+                                <h6 class="text-white text-uppercase m-0">Renovation</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row g-5 portfolio-container">
+            <div data-aos="zoom-in-right" class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                <div class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-6.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Aman Farm House</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>New Investers
+                            Colony Banglore, India</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-1.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-2.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Rudra Excavation</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>Singh Properties,
+                            Odisa, India</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-3.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-4.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Arya Valley</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>City Center,
+                            Karnatak, India</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-5.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-1.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Happy Dream City</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>City Center, Greater
+                            Noida, UP</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-2.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-3.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Jaya Villa</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>Ring Road, New
+                            Delhi, India</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-4.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-5.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Ishan Mall</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>IFFCO Chowk
+                            gurugram, Haryana</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-6.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio End -->
+
+
+
+
+
+    <!-- Testimonial Start -->
+    <div data-aos="zoom-out" class="container-fluid bg-light py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4 fw-bold"><b>What Our <span class="text-warning">Happy
+                        Cleints</span> Say!!!</b></h1>
+        </div>
+        <div data-aos="zoom-out" class="row gx-0 align-items-center">
+            <div data-aos="zoom-out" class="col-xl-4 col-lg-5 d-none d-lg-block">
+                <img class="img-fluid w-100 h-100 rounded-5" src="{% static 'img/vibhu.jpeg' %}">
+            </div>
+            <div class="col-xl-8 col-lg-7 col-md-12">
+                <div data-aos="zoom-out" class="testimonial bg-light">
+                    <div class="owl-carousel testimonial-carousel">
+                        <div class="row gx-4 align-items-center">
+                            <div class="col-xl-4 col-lg-5 col-md-5">
+                                <img class="img-fluid w-100 h-100 bg-light p-lg-3 mb-4 mb-md-0 rounded-5"
+                                    src="{% static 'img/Designer.png' %}" alt="">
+                            </div>
+                            <div data-aos="zoom-out" class="col-xl-8 col-lg-7 col-md-7">
+                                <h4 class="text-uppercase mb-0">Akash Pal</h4>
+                                <p>Contractor</p>
+                                <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> "Working
+                                    with this construction team was a fantastic experience. Their attention to detail
+                                    and commitment to quality exceeded our expectations. They completed our project on
+                                    time and within budget."
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row gx-4 align-items-center">
+                            <div data-aos="zoom-out" class="col-xl-4 col-lg-5 col-md-5">
+                                <img class="img-fluid w-100 h-100 bg-light p-lg-3 mb-4 mb-md-0 rounded-5"
+                                    src="{% static 'img/thevaibhav.jpg' %}" alt="">
+                            </div>
+                            <div data-aos="zoom-out" class="col-xl-8 col-lg-7 col-md-7">
+                                <h4 class="text-uppercase mb-0">Vaibhav Kumar</h4>
+                                <p>Dealer</p>
+                                <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> "I'm
+                                    extremely impressed with the professionalism and expertise demonstrated throughout
+                                    our office building project. The team was responsive, transparent, and delivered
+                                    exceptional results."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+
+
+
+    <!-- Footer Start -->
+    <div data-aos="zoom-out"
+        class="footer container-fluid position-relative bg-dark bg-light-radial text-white-50 py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-6 pe-lg-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="m-0 display-5 text-uppercase text-white fw-bold"><i
+                            class="bi bi-building text-primary me-2"></i>Smart Build Hub</h1>
+                </a>
+                <p>An innovative digital platform transforming traditional home construction methods through seamless
+                    collaboration between homeowners, architects, contractors, and suppliers.</p>
+                <p><i class="fa fa-map-marker-alt me-2"></i>B 512/13 Ring Road New Delhi</p>
+                <p><i class="fa fa-phone-alt me-2"></i>+91 8791797542</p>
+                <p><i class="fa fa-envelope me-2"></i>enquiry@sbh.com</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0" href="#"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <div class="row g-5">
+                    <div class="col-sm-6">
+                        <h4 class="text-white text-uppercase mb-4">Quick Links</h4>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>About Us</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our
+                                Services</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The
+                                Team</a>
+                            <a class="text-white-50" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="text-white text-uppercase mb-4">Popular Links</h4>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>About Us</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our
+                                Services</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The
+                                Team</a>
+                            <a class="text-white-50" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h4 class="text-white text-uppercase mb-4">Newsletter</h4>
+                        <div class="w-100">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-light" style="padding: 20px 30px;"
+                                    placeholder="Your Email Address"><button class="btn btn-primary px-4">Sign
+                                    Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark bg-light-radial text-white border-top border-primary px-0">
+        <div class="d-flex flex-column flex-md-row justify-content-between">
+            <div class="py-4 px-5 text-center text-md-start">
+                <p class="mb-0">&copy; <a class="text-primary" href="#">Smart Build Hub</a>. All Rights Reserved.</p>
+            </div>
+            <div class="py-4 px-5 bg-primary footer-shape position-relative text-center text-md-end">
+                <p class="mb-0">Designed by <a class="text-dark" href="updatedhubs.blogspot.com">Vaibhav Kumar</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

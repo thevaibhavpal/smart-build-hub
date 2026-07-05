@@ -1,0 +1,513 @@
+{% extends 'adminbase.html' %}
+
+{% block admin %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Build Hub - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .chart-container {
+            height: 250px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .avatar-initials {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3B82F6;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen overflow-hidden">
+
+
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-y-auto">
+            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h1 class="text-2xl font-bold text-gray-800">Admin Dashboard</h1>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button class="text-gray-500 hover:text-gray-700" title="Site Alerts">
+                            <i class="fas fa-hard-hat text-xl"></i>
+                            <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500"></span>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <button class="text-gray-500 hover:text-gray-700" title="Material Orders">
+                            <i class="fas fa-truck text-xl"></i>
+                            <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-blue-500"></span>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <button class="text-gray-500 hover:text-gray-700" title="Safety Reports">
+                            <i class="fas fa-shield-alt text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="p-6">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    <div class="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 mr-4">
+                                <i class="fas fa-hard-hat text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Total Homeowners</p>
+                                <p class="text-2xl font-semibold text-gray-900">{{th}}</p>
+                                <p class="text-xs text-green-600 font-medium">2 new sites this week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 mr-4">
+                                <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Total Contractors</p>
+                                <p class="text-2xl font-semibold text-gray-900">{{tc}}</p>
+                                <p class="text-xs text-green-600 font-medium">+5.3% from last week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 mr-4">
+                                <i class="fas fa-exclamation-triangle text-yellow-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Total Projects</p>
+                                <p class="text-2xl font-semibold text-gray-900">{{tp}}</p>
+                                <p class="text-xs text-red-600 font-medium">-2 from last week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-red-100 mr-4">
+                                <i class="fas fa-dollar-sign text-red-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Budget Usage</p>
+                                <p class="text-2xl font-semibold text-gray-900">72%</p>
+                                <p class="text-xs text-green-600 font-medium">On track</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 mr-4">
+                                <i class="fas fa-hard-hat text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Completed Projects</p>
+                                <p class="text-2xl font-semibold text-gray-900">{{tcp}}</p>
+                                <p class="text-xs text-green-600 font-medium">2 new sites this week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 mr-4">
+                                <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Under Construction</p>
+                                <p class="text-2xl font-semibold text-gray-900">{{trp}}</p>
+                                <p class="text-xs text-green-600 font-medium">+5.3% from last week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 mr-4">
+                                <i class="fas fa-exclamation-triangle text-yellow-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Ongoing Projects</p>
+                                <p class="text-2xl font-semibold text-gray-900">4</p>
+                                <p class="text-xs text-red-600 font-medium">-2 from last week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-red-100 mr-4">
+                                <i class="fas fa-dollar-sign text-red-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Budget Usage</p>
+                                <p class="text-2xl font-semibold text-gray-900">72%</p>
+                                <p class="text-xs text-green-600 font-medium">On track</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts and Projects -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <!-- Construction Progress Widget -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">Site Progress</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Foundation</span>
+                                    <span class="text-sm font-medium text-gray-500">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-orange-600 h-2.5 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Framing</span>
+                                    <span class="text-sm font-medium text-gray-500">45%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Electrical</span>
+                                    <span class="text-sm font-medium text-gray-500">30%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Projects Overview Chart -->
+                    <div class="bg-white rounded-lg shadow p-6 col-span-1 lg:col-span-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-semibold text-gray-800">Projects Overview</h2>
+                            <div class="flex space-x-2">
+                                <button class="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-full">Weekly</button>
+                                <button
+                                    class="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded-full">Monthly</button>
+                                <button
+                                    class="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded-full">Quarterly</button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/21185c44-96e7-4c6c-86e9-67afc52283d7.png"
+                                alt="Bar chart showing project status: 12 active, 5 in planning, 3 completed, and 2 on hold construction projects with blue bars and white grid lines"
+                                class="w-full h-full object-cover rounded">
+                        </div>
+                    </div>
+
+                    <!-- Recent Activities -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">Recent Activities</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                                        <i class="fas fa-check text-green-600 text-sm"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Phase 1 completed</p>
+                                    <p class="text-xs text-gray-500">Downtown High-Rise Project</p>
+                                    <p class="text-xs text-gray-400">2 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <i class="fas fa-truck text-blue-600 text-sm"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Material delivered</p>
+                                    <p class="text-xs text-gray-500">500 bags of cement to Riverside site</p>
+                                    <p class="text-xs text-gray-400">5 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center">
+                                        <i class="fas fa-exclamation-triangle text-yellow-600 text-sm"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Inspection required</p>
+                                    <p class="text-xs text-gray-500">Electrical work at Oakwood Development</p>
+                                    <p class="text-xs text-gray-400">1 day ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                                        <i class="fas fa-file-invoice-dollar text-purple-600 text-sm"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Invoice paid</p>
+                                    <p class="text-xs text-gray-500">#INV-00234 to Concrete Masters Inc.</p>
+                                    <p class="text-xs text-gray-400">2 days ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects and Task List -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Active Projects -->
+                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6 pb-4">
+                            <div class="flex items-center justify-between">
+                                <h2 class="text-lg font-semibold text-gray-800">Active Projects</h2>
+                                <button class="text-blue-600 text-sm font-medium">View All</button>
+                            </div>
+                        </div>
+                        <div class="divide-y divide-gray-200">
+                            <div class="project-card p-6 hover:bg-gray-50 cursor-pointer border-l-4 border-blue-500">
+                                <div class="flex items-start">
+                                    <div class="w-16 h-16 rounded-md bg-gray-100 mr-4 overflow-hidden flex-shrink-0">
+                                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c2bb7219-8536-494c-90cc-a236ff0c0c25.png"
+                                            alt="High-rise construction site with cranes and scaffolding under blue sky"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start">
+                                            <h3 class="text-sm font-bold text-gray-900 mb-1">Downtown High-Rise</h3>
+                                            <span
+                                                class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Active</span>
+                                        </div>
+                                        <p class="text-xs text-gray-500 mb-2">Commercial • Completion: Sep 2023</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <span class="text-xs font-medium text-gray-500">Phase 3: Framing</span>
+                                            <span class="text-xs font-medium text-blue-600">₹ 800000 </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card p-6 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-start">
+                                    <div class="w-16 h-16 rounded-md bg-gray-100 mr-4 overflow-hidden flex-shrink-0">
+                                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/472dcbde-6e20-4b08-a432-b5fdd9344949.png"
+                                            alt="Suburban housing development with half-built homes and construction vehicles"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-sm font-bold text-gray-900 mb-1">Riverside Housing</h3>
+                                        <p class="text-xs text-gray-500 mb-2">Residential • Completion: Dec 2023</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-green-600 h-2 rounded-full" style="width: 45%"></div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <span class="text-xs font-medium text-gray-500">45% complete</span>
+                                            <span class="text-xs font-medium text-green-600">₹ 100000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card p-6 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-start">
+                                    <div class="w-16 h-16 rounded-md bg-gray-100 mr-4 overflow-hidden flex-shrink-0">
+                                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9e0da976-04f6-4907-8264-63733554e19c.png"
+                                            alt="Hospital construction site with steel framework and workers in safety gear"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-sm font-bold text-gray-900 mb-1">City General Hospital</h3>
+                                        <p class="text-xs text-gray-500 mb-2">Healthcare • Completion: Mar 2024</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-yellow-500 h-2 rounded-full" style="width: 25%"></div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <span class="text-xs font-medium text-gray-500">25% complete</span>
+                                            <span class="text-xs font-medium text-yellow-600">₹ 200000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Tasks -->
+                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6 pb-4">
+                            <div class="flex items-center justify-between">
+                                <h2 class="text-lg font-semibold text-gray-800">Upcoming Tasks</h2>
+                                <button class="text-blue-600 text-sm font-medium">View All</button>
+                            </div>
+                        </div>
+                        <div class="divide-y divide-gray-200">
+                            <div class="p-4 hover:bg-gray-50">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+                                            <span class="ml-2 text-sm font-medium text-gray-900">Inspect concrete pour
+                                                (Block A)</span>
+                                        </label>
+                                        <p class="text-xs text-gray-500 ml-6">Downtown High-Rise • Due today • Site
+                                            Supervisor: John D.</p>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                                            Inspection
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-gray-50">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+                                            <span class="ml-2 text-sm font-medium text-gray-900">Approve steel
+                                                order</span>
+                                        </label>
+                                        <p class="text-xs text-gray-500 ml-6">City General Hospital • Due in 2 days</p>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
+                                            Approval
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-gray-50">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+                                            <span class="ml-2 text-sm font-medium text-gray-900">Meeting with electrical
+                                                contractor</span>
+                                        </label>
+                                        <p class="text-xs text-gray-500 ml-6">Riverside Housing • Due in 3 days</p>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
+                                            Meeting
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-gray-50">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+                                            <span class="ml-2 text-sm font-medium text-gray-900">Review safety
+                                                inspection reports</span>
+                                        </label>
+                                        <p class="text-xs text-gray-500 ml-6">All Projects • Due in 4 days</p>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">
+                                            Safety
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-gray-50">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+                                            <span class="ml-2 text-sm font-medium text-gray-900">Submit permit for phase
+                                                3</span>
+                                        </label>
+                                        <p class="text-xs text-gray-500 ml-6">Downtown High-Rise • Due in 5 days</p>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800">
+                                            Documentation
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Simple functionality for project cards - in a real app this would be more sophisticated
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function () {
+                // In a real app, this would navigate to the project detail view
+                console.log('Navigating to project:', this.querySelector('h3').textContent);
+            });
+        });
+
+        // Simple task completion logic
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    this.parentElement.style.textDecoration = 'line-through';
+                    this.parentElement.style.opacity = '0.7';
+                } else {
+                    this.parentElement.style.textDecoration = 'none';
+                    this.parentElement.style.opacity = '1';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+</div>
+</div>
+{% endblock %}

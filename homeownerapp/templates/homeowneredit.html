@@ -1,0 +1,73 @@
+{% extends 'homeownerbase.html' %}
+{% load static %}
+{% block title %}
+edit homeowner profile
+{% endblock %}
+
+{% block main %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Edit homeowner Profile</h3>
+                </div>
+                <div class="card-body">
+
+                    <!-- Display Messages -->
+                    {% if messages %}
+                    {% for n in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ n }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+
+                    <form method="post" enctype="multipart/form-data" class="row g-4">
+                        {% csrf_token %}
+
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" id="name" value="{{ homeowner.name }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                value="{{ homeowner.email }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="contactno" class="form-label">Contact No</label>
+                            <input type="text" class="form-control" name="contactno" id="contactno"
+                                value="{{ homeowner.contactno }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="pro" class="form-label">Profile Picture</label>
+                            <input type="file" class="form-control" name="profile" id="pro">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="address" class="form-label">Full Address</label>
+                            <textarea class="form-control" name="address" id="address"
+                                rows="3">{{ homeowner.address }}</textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control" name="bio" id="bio" rows="3">{{ homeowner.bio }}</textarea>
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-success px-5">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

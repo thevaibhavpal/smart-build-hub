@@ -1,0 +1,37 @@
+{% extends 'contractorbase.html' %}
+{% load static %}
+{% block title %}
+Contractor Profile
+{% endblock %}
+
+{% block main %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <!-- Profile Image -->
+                    {% if contractor.picture %}
+                        <img src="{{ contractor.picture.url }}" alt="Profile Picture" class="rounded-circle mb-3" width="120" height="120">
+                    {% else %}
+                        <img src="#" alt="Default Profile" class="rounded-circle mb-3" width="120" height="120">
+                    {% endif %}
+
+                    <h3 class="mb-1">{{ contractor.name }}</h3>
+                    <p class="text-muted">Contractor Profile</p>
+
+                    <hr>
+
+                    <div class="text-start">
+                        <p><strong>Name:</strong> {{ contractor.name }}</p>
+                        <p><strong>Contact No:</strong> {{ contractor.contactno }}</p>
+                        <p><strong>Email:</strong> {{ contractor.email }}</p>
+                        <p><strong>Address:</strong> {{ contractor.address }}</p>
+                        <p><strong>Bio:</strong> {{ contractor.bio }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

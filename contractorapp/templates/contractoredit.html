@@ -1,0 +1,71 @@
+{% extends 'contractorbase.html' %}
+{% load static %}
+{% block title %}
+edit profile
+{% endblock %}
+
+{% block main %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Edit Contractor Profile</h3>
+
+                    {% if messages %}
+                    {% for m in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ m }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data" class="row g-4">
+                        {% csrf_token %}
+
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" id="name" value="{{ contractor.name }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                value="{{ contractor.email }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="contactno" class="form-label">Contact No</label>
+                            <input type="text" class="form-control" name="contactno" id="contactno"
+                                value="{{ contractor.contactno }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="profile" class="form-label">Profile Picture</label>
+                            <input type="file" class="form-control" name="profile" id="profile">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="address" class="form-label">Full Address</label>
+                            <textarea class="form-control" name="address" id="address"
+                                rows="3">{{ contractor.address }}</textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control" name="bio" id="bio" rows="3">{{ contractor.bio }}</textarea>
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-success px-5">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

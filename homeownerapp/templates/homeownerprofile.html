@@ -1,0 +1,37 @@
+{% extends 'homeownerbase.html' %}
+{% load static %}
+{% block title %}
+homeowner Profile
+{% endblock %}
+
+{% block main %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <!-- Profile Image -->
+                    {% if homeowner.picture %}
+                        <img src="{{ homeowner.picture.url }}" alt="Profile Picture" class="rounded-circle mb-3" width="120" height="120">
+                    {% else %}
+                        <img src="#" alt="Default Profile" class="rounded-circle mb-3" width="120" height="120">
+                    {% endif %}
+
+                    <h3 class="mb-1">{{ homeowner.name }}</h3>
+                    <p class="text-muted">homeowner Profile</p>
+
+                    <hr>
+
+                    <div class="text-start">
+                        <p><strong>Name:</strong> {{ homeowner.name }}</p>
+                        <p><strong>Contact No:</strong> {{ homeowner.contactno }}</p>
+                        <p><strong>Email:</strong> {{ homeowner.email }}</p>
+                        <p><strong>Address:</strong> {{ homeowner.address }}</p>
+                        <p><strong>Bio:</strong> {{ homeowner.bio }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

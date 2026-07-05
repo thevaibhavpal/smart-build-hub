@@ -1,0 +1,199 @@
+{% extends 'mainbase.html' %}
+{% load static %}
+{% block title %}
+Projects
+{% endblock %}
+{% block main %}
+<!-- 6 buildings start -->
+
+    <div class="container py-5">
+        <div data-aos="zoom-in-right" class="text-center mb-4">
+            <small class="text-warning fs-3 fw-bold">OUR PROJECTS</small>
+            <h2 class="section-title text-dark">Featured Construction Projects</h2>
+            <p class="section-subtitle text-dark">
+                Take a look at some of our most impressive projects, showcasing our commitment to quality, innovation,
+                and excellence in construction.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Project 1 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/1.jpg' %}" class="img-fluid" alt="Modern Office Complex">
+                    <div class="category">Commercial</div>
+                    <div class="title">Modern Office Complex</div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/2.jpg' %}" class="img-fluid" alt="Luxury Residential Tower"
+                        style="height:220px; width:500px;">
+                    <div class="category">Residential</div>
+                    <div class="title">Luxury Residential Tower</div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/3.jpg' %}" class="img-fluid" alt="Community Center">
+                    <div class="category">Public</div>
+                    <div class="title">Sustainable Community Center</div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/4.jpg' %}" class="img-fluid" alt="Manufacturing Hub"
+                        style="height:200px; width:500px;">
+                    <div class="category">Industrial</div>
+                    <div class="title">Industrial Manufacturing Hub</div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/5.jpg' %}" class="img-fluid" alt="Hotel & Spa">
+                    <div class="category">Hospitality</div>
+                    <div class="title">Waterfront Hotel & Spa</div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div data-aos="zoom-in-right" class="col-md-4">
+                <div class="project-card">
+                    <img src="{% static 'img/6.jpg' %}" class="img-fluid" alt="Urban Development"
+                        style="height:200px; width:500px;">
+                    <div class="category">Mixed-use</div>
+                    <div class="title">Urban Mixed-Use Development</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6 buildings end -->
+
+    <!-- Portfolio Start -->
+    <div data-aos="zoom-in-right" class="container-fluid bg-light py-6 px-5">
+        <div data-aos="zoom-in-right" class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4">Some Of Our <span class="text-primary">Popular</span> Dream
+                Projects</h1>
+        </div>
+        <div class="row gx-5">
+            <div data-aos="zoom-in-right" class="col-12 text-center">
+                <div class="d-inline-block bg-dark-radial text-center pt-4 px-5 mb-5">
+                    <ul class="list-inline mb-0" id="portfolio-flters">
+                        <li class="btn btn-outline-primary bg-white p-2 active mx-2 mb-4" data-filter="*">
+                            <img src="{% static 'img/portfolio-1.jpg' %}" style="width: 150px; height: 100px;">
+                            <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center"
+                                style="background: rgba(4, 15, 40, .3);">
+                                <h6 class="text-white text-uppercase m-0">All</h6>
+                            </div>
+                        </li>
+                        <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4" data-filter=".first">
+                            <img src="{% static 'img/portfolio-2.jpg' %}" style="width: 150px; height: 100px;">
+                            <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center"
+                                style="background: rgba(4, 15, 40, .3);">
+                                <h6 class="text-white text-uppercase m-0">Construction</h6>
+                            </div>
+                        </li>
+                        <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4" data-filter=".second">
+                            <img src="{% static 'img/portfolio-3.jpg' %}" style="width: 150px; height: 100px;">
+                            <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center"
+                                style="background: rgba(4, 15, 40, .3);">
+                                <h6 class="text-white text-uppercase m-0">Renovation</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row g-5 portfolio-container">
+            <div data-aos="zoom-in-right" class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                <div class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-6.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Aman Farm House</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>New Investers
+                            Colony Banglore, India</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-1.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-2.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Rudra Excavation</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>Singh Properties,
+                            Odisa, India</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-3.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-4.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Arya Valley</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>City Center,
+                            Karnatak, India</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-5.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-1.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Happy Dream City</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>City Center, Greater
+                            Noida, UP</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-2.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-3.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Jaya Villa</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>Ring Road, New
+                            Delhi, India</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-4.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
+                <div data-aos="zoom-in-right" class="position-relative portfolio-box">
+                    <img class="img-fluid w-100" src="{% static 'img/portfolio-5.jpg' %}" alt="">
+                    <a class="portfolio-title shadow-sm" href="">
+                        <p class="h4 text-uppercase">Ishan Mall</p>
+                        <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>IFFCO Chowk
+                            gurugram, Haryana</span>
+                    </a>
+                    <a class="portfolio-btn" href="{% static 'img/portfolio-6.jpg' %}" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio End -->
+
+{% endblock %}

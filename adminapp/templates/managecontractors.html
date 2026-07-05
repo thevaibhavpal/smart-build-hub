@@ -1,0 +1,61 @@
+{% extends 'adminbase.html' %}
+
+{% block admin %}
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="fw-bold">Manage Contractors</h4>
+        <a href="{% url 'managecontractors' %}" class="btn btn-primary">Add New Contractor</a>
+    </div>
+
+    <div class="card shadow border-0">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>S No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Picture</th>
+                            <th>Contact No.</th>
+                            <th>Address</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for h in contractors %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ h.name }}</td>
+                            <td>{{ h.email }}</td>
+                            <td>
+                                {% if h.picture %}
+                                <img src="{{ h.picture.url }}" alt="Profile Picture" height="80px">
+                                {% else %}
+                                No Profile
+                                {% endif %}
+                            </td>
+                            <td>{{ h.contactno }}</td>
+                            <td>{{ h.address }}</td>
+                            <td>
+                                {% if h.is_active %}
+                                <a href="{% url 'blockcontractor' h.id %}" class="btn btn-sm btn-danger">Block</a>
+                                {% else %}
+                                <a href="{% url 'unblockcontractor' h.id %}" class="btn btn-sm btn-success">Unblock</a>
+                                {% endif %}
+                            </td>
+
+
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="7" class="text-center text-muted">No contractors found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

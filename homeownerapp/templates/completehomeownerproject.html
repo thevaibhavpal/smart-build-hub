@@ -1,0 +1,35 @@
+{% extends 'homeownerbase.html' %}
+
+{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>complete homeowenr project</h3>
+    <table class="table">
+        <tr>
+            <th>S. No.</th>
+            <th>Project Name</th>
+            <th>Contractor Name</th>
+            <th>Status</th>
+        </tr>
+        {% for p in projects %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{p.projectname}}</td>
+            <td>{{p.contractor.name}}</td>
+            <td>
+                <span class="btn btn-success">{{p.status}}</span>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+{% endblock %}

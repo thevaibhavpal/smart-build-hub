@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeowner Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            background-color: #f8f9fa;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .dashboard-header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card {
+            border-left: 4px solid #0d6efd;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card {
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar p-0">
+                <div class="d-flex flex-column flex-shrink-0 p-3">
+                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                        <span class="fs-4">Smart Build Hub</span>
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" aria-current="page">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#home" />
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="mt-4 bg-primary shadow border-3 p-2 rounded">
+                            <label for="project-nav" class="form-label text-white fw-bold">🛠 Manage Projects</label>
+
+                            <select id="project-nav" class="form-select mt-2"
+                                onchange="if(this.value) window.location.href=this.value;">
+                                <option selected disabled>Choose an Action</option>
+                                <option value="{% url 'addhomeownerproject' %}">➕ Add Project</option>
+                                <option value="{% url 'viewhomeownerproject' %}">📋 View Projects</option>
+                                <option value="{% url 'runninghomeownerproject' %}">🚧 Running Projects</option>
+                                <option value="{% url 'completehomeownerproject' %}">✅ Completed Projects</option>
+                            </select>
+                        </li>
+
+                    </ul>
+                    <hr>
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle"
+                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d51fd5f3-47b6-4ebd-ad51-c94b3076a668.png"
+                                alt="Profile picture of contractor" width="32" height="32" class="rounded-circle me-2">
+                            <strong>{{name}}</strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="{% url 'homeownerprofile' %}">View Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'homeowneredit' %}">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'chpass2' %}">Change Password</a></li>
+                            <li><a class="dropdown-item" href="{% url 'homeownerlogout' %}">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 ms-sm-auto px-4">
+                <div class="dashboard-header mb-4 pt-3">
+                    <h2>Homeowner Dashboard</h2>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <span class="text-muted">Welcome, Homeowner</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary">Request Quote</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="card stat-card mb-3">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">Active Renovations</h6>
+                                <h3 class="card-title">2</h3>
+                                <p class="card-text text-success">On schedule</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card mb-3">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">Current Budget</h6>
+                                <h3 class="card-title">₹ 24,000</h3>
+                                <p class="card-text text-warning">Monitoring spending</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card mb-3">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">Upcoming Payments</h6>
+                                <h3 class="card-title">$3,500</h3>
+                                <p class="card-text text-success">Next due in 5 days</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card mb-3">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">Open Quotes</h6>
+                                <h3 class="card-title">3</h3>
+                                <p class="card-text text-danger">2 expiring soon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Projects Section -->
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>Recent Projects</h5>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Project</th>
+                                        <th>Client</th>
+                                        <th>Status</th>
+                                        <th>Progress</th>
+                                        <th>Budget</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Greenfield Residence</td>
+                                        <td>Smith Family</td>
+                                        <td><span class="badge bg-warning">In Progress</span></td>
+                                        <td>
+                                            <div class="progress" style="height: 5px;">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                    style="width: 65%;" aria-valuenow="65" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td>$35,000</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Commercial Office Renovation</td>
+                                        <td>TechCorp LLC</td>
+                                        <td><span class="badge bg-primary">Scheduled</span></td>
+                                        <td>
+                                            <div class="progress" style="height: 5px;">
+                                                <div class="progress-bar bg-primary" role="progressbar"
+                                                    style="width: 5%;" aria-valuenow="5" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td>$52,000</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kitchen Remodel</td>
+                                        <td>Johnson Residence</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>
+                                            <div class="progress" style="height: 5px;">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                    style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td>$18,500</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Section -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>Recent Activity</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">Invoice #1045 Paid</h6>
+                                            <small class="text-muted">2 hours ago</small>
+                                        </div>
+                                        <p class="mb-1">Smith Residence project - $5,200 received</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">New Estimate Request</h6>
+                                            <small class="text-muted">1 day ago</small>
+                                        </div>
+                                        <p class="mb-1">Commercial roofing project from Miller Construction</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">Project Milestone Completed</h6>
+                                            <small class="text-muted">2 days ago</small>
+                                        </div>
+                                        <p class="mb-1">First floor framing complete on Greenfield Residence</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>Upcoming Schedule</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">Material Delivery</h6>
+                                            <small class="text-muted">Tomorrow, 9:00 AM</small>
+                                        </div>
+                                        <p class="mb-1">Greenfield Residence - Drywall delivery</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">Client Meeting</h6>
+                                            <small class="text-muted">Mar 15, 2:00 PM</small>
+                                        </div>
+                                        <p class="mb-1">TechCorp LLC - Final design approval</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">Inspection</h6>
+                                            <small class="text-muted">Mar 18, 10:00 AM</small>
+                                        </div>
+                                        <p class="mb-1">Johnson Kitchen - Electrical inspection</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+{% extends 'mainbase.html' %}
+{% load static %}
+{% block title %}
+About Us
+{% endblock %}
+
+{% block main %}
+
+<!-- About Us Section -->
+<div class="container-fluid py-5 px-4">
+    <div class="row align-items-center">
+        <!-- Textual Content -->
+        <div class="col-lg-7">
+            <h1 class="display-5 fw-bold text-uppercase mb-4">
+                Building the <span class="text-primary">Future</span> with Excellence
+            </h1>
+            <p class="lead text-muted mb-3">
+                At our core, we are driven by innovation, quality, and a commitment to deliver world-class construction solutions. With decades of combined experience, our team leads the industry with vision and purpose.
+            </p>
+            <p class="mb-4">
+                We specialize in delivering civil engineering, infrastructure development, and architectural solutions tailored to meet the needs of clients across residential, commercial, and industrial sectors.
+            </p>
+
+            <!-- Key Points -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <p><i class="fa fa-check text-primary me-2"></i>Certified & Experienced Team</p>
+                    <p><i class="fa fa-check text-primary me-2"></i>Modern & Sustainable Designs</p>
+                    <p><i class="fa fa-check text-primary me-2"></i>On-Time Project Delivery</p>
+                </div>
+                <div class="col-md-6">
+                    <p><i class="fa fa-check text-primary me-2"></i>Client-Centric Approach</p>
+                    <p><i class="fa fa-check text-primary me-2"></i>Quality Assurance Practices</p>
+                    <p><i class="fa fa-check text-primary me-2"></i>Global Industry Standards</p>
+                </div>
+            </div>
+
+            <!-- Signature -->
+            <div class="d-flex align-items-center">
+                <img src="{% static 'img/signature.jpg' %}" alt="Signature" width="120" class="me-3">
+                <div>
+                    <h5 class="mb-0">Vaibhav Kumar</h5>
+                    <small class="text-muted">Founder & CEO</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image -->
+        <div class="col-lg-5">
+            <div class="position-relative overflow-hidden rounded shadow-sm">
+                <img src="{% static 'img/house.jpeg' %}" class="img-fluid" alt="Construction Team" style="object-fit: cover; height: 100%;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mission, Vision, Values -->
+<div class="container py-5">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <h4 class="text-uppercase mb-3">Our Mission</h4>
+            <p class="text-muted">To deliver high-quality, cost-effective projects on schedule by employing and supporting motivated, flexible, and focused teams.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+            <h4 class="text-uppercase mb-3">Our Vision</h4>
+            <p class="text-muted">To become a leading construction company known for innovation, customer satisfaction, and global standards in infrastructure development.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+            <h4 class="text-uppercase mb-3">Core Values</h4>
+            <ul class="list-unstyled text-start d-inline-block">
+                <li><i class="fa fa-check text-primary me-2"></i>Integrity</li>
+                <li><i class="fa fa-check text-primary me-2"></i>Transparency</li>
+                <li><i class="fa fa-check text-primary me-2"></i>Commitment</li>
+                <li><i class="fa fa-check text-primary me-2"></i>Innovation</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Team Section -->
+<div class="container py-5 bg-light rounded">
+    <h3 class="text-center text-uppercase mb-5">Meet Our Leadership</h3>
+    <div class="row g-4">
+        <div class="col-md-3 text-center">
+            <img src="{% static 'img/team-1.jpg' %}" class="img-fluid rounded-circle mb-3" alt="">
+            <h6 class="mb-0">Vaibhav Kumar</h6>
+            <small class="text-muted">Founder & CEO</small>
+        </div>
+        <div class="col-md-3 text-center">
+            <img src="{% static 'img/team-2.jpg' %}" class="img-fluid rounded-circle mb-3" alt="">
+            <h6 class="mb-0">Neha Singh</h6>
+            <small class="text-muted">Operations Head</small>
+        </div>
+        <div class="col-md-3 text-center">
+            <img src="{% static 'img/team-3.jpg' %}" class="img-fluid rounded-circle mb-3" alt="">
+            <h6 class="mb-0">Ravi Yadav</h6>
+            <small class="text-muted">Project Manager</small>
+        </div>
+        <div class="col-md-3 text-center">
+            <img src="{% static 'img/team-4.jpg' %}" class="img-fluid rounded-circle mb-3" alt="">
+            <h6 class="mb-0">Isha Verma</h6>
+            <small class="text-muted">Design Head</small>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="container py-5 text-center">
+    <h4 class="text-uppercase mb-3">Have a Project in Mind?</h4>
+    <p class="mb-4">Let’s build something extraordinary together. Contact us for a free consultation.</p>
+    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg px-4">Get in Touch</a>
+</div>
+
+{% endblock %}
